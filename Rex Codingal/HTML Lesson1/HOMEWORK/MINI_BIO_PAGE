@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title>My Biography</title>
+</head>
+<body>
+	<h1>My Mini Biography</h1>
+
+	<h2>Hello, my name is Rex</h2>
+	<p>I am learning how to make web pages using HTML.</p>
+
+	<h2>What I am learning</h2>
+	<p>I am learning how to use headings, paragraphs and lists.</p>
+
+	<h2>My goal</h2>
+	<p>My goal is to learn more about making websites.</p>
+
+	<h2>Things I like about HTML</h2>
+	<ul>
+		<li>Making a web page</li>
+		<li>Adding words and headings</li>
+		<li>Learning something new</li>
+	</ul>
+</body>
+</html>
