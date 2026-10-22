@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>My Dream School Timetable</title>
+</head>
+<body>
+	<h1>My Dream School Timetable</h1>
+	<p>I'm an arty, sporty and chill guy, so my dream school day has creative lessons, time to play and a few chances to relax.</p>
+
+	<table border="1">
+		<tr>
+			<th>Time</th>
+			<th>Monday</th>
+			<th>Tuesday</th>
+			<th>Wednesday</th>
+			<th>Thursday</th>
+			<th>Friday</th>
+		</tr>
+		<tr>
+			<th>9:00 - 10:00</th>
+			<td>Art</td>
+			<td>Maths</td>
+			<td>Art</td>
+			<td>Science</td>
+			<td>Music</td>
+		</tr>
+		<tr>
+			<th>10:00 - 11:00</th>
+			<td>English</td>
+			<td>PE</td>
+			<td>History</td>
+			<td>Art</td>
+			<td>PE</td>
+		</tr>
+		<tr>
+			<th>11:00 - 11:30</th>
+			<td>Break</td>
+			<td>Break</td>
+			<td>Break</td>
+			<td>Break</td>
+			<td>Break</td>
+		</tr>
+		<tr>
+			<th>11:30 - 12:30</th>
+			<td>Science</td>
+			<td>Design</td>
+			<td>PE</td>
+			<td>Maths</td>
+			<td>Outdoor games</td>
+		</tr>
+		<tr>
+			<th>12:30 - 1:30</th>
+			<td>Lunch</td>
+			<td>Lunch</td>
+			<td>Lunch</td>
+			<td>Lunch</td>
+			<td>Lunch</td>
+		</tr>
+		<tr>
+			<th>1:30 - 2:30</th>
+			<td>Football</td>
+			<td>Art club</td>
+			<td>Music</td>
+			<td>Basketball</td>
+			<td>Free choice</td>
+		</tr>
+		<tr>
+			<th>2:30 - 3:00</th>
+			<td>Reading</td>
+			<td>Homework time</td>
+			<td>Drawing</td>
+			<td>Homework time</td>
+			<td>Relax and reflect</td>
+		</tr>
+	</table>
+</body>
+</html>
