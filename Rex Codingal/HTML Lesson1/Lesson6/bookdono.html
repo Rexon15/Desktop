@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width">
+
+<title>Book Donation Form</title>
+
+</head>
+
+<body>
+
+<h1>Book Donation Form</h1>
+<p>Fill in the form below to donate a book.</p>
+
+
+ <form>  
+
+    <fieldset>
+        <legend>Donor Information</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>Book Information</legend>
+        <label for="book-title">Book Title:</label>
+        <input type="text" id="book-title" name="book-title" required><br><br>
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required><br><br>
+
+        <label for="genre">Book Genre:</label>
+        <select id="genre" name="genre" required>
+            <option value="">--Please choose a genre--</option>
+            <option value="fiction">Fiction</option>
+            <option value="non-fiction">Non-fiction</option>
+            <option value="children">Children's book</option>
+            <option value="educational">Educational</option>
+        </select><br><br>
+
+        <label for="quantity">Number of Books:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required><br><br>
+
+        <label>Book Condition:</label>
+        <input type="radio" name="condition" value="new" required> New
+        <input type="radio" name="condition" value="good"> Good
+        <input type="radio" name="condition" value="used"> Used
+        <br><br>
+
+        <label for="notes">Extra Information:</label><br>
+        <textarea id="notes" name="notes" rows="3" cols="35"
+            placeholder="Write something about your donation..."></textarea>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>Collection Preference</legend>
+        <input type="radio" id="drop-off" name="collection" value="drop-off" required>
+        <label for="drop-off">I will drop off the books</label><br>
+        <input type="radio" id="pickup" name="collection" value="pickup">
+        <label for="pickup">Please collect the books</label>
+    </fieldset>
+
+    <br>
+
+    <input type="submit" value="Donate Books">
+</form>
+
+</body>
+</html>
