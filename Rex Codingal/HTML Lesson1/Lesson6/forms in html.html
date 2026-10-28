@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width">
+
+<title>Explore the Web</title>
+
+</head>
+
+<body>
+
+<h1> My Doctors Appointment</h1>
+<p>Fill in the form below to book your appointment!</p>
+
+
+ <form>  
+
+     <fieldset>
+        <legend>Personal Information</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+     <label>Patient ID:</label>
+     <input type="text" id="patient-id" name="patient-id" required><br><br>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+        <button type="submit">Submit</button>
+
+        </fieldset>
+
+    </br>
+    <fieldset>
+        <legend>Appointment Details</legend>
+        <label for="doctor">Select Doctor:</label>
+        <select id="doctor" name="doctor" required>
+            <option value="">--Please choose an option--</option>
+            <option value="dr-Ray">Dr. Ray</option>
+            <option value="dr-Lee">Dr. Lee</option>
+            <option value="dr-Sam">Dr. Sam</option>
+        </select><br><br>
+
+        <label for="date">Select Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="time">Select Time:</label>
+        <input type="time" id="time" name="time" required><br><br>
+
+        <button type="submit">Book Appointment</button>
+        <label for="reason">Why are you visiting?</label>
+        <input type="radio"name="reason" value="checkup" required> Check-up
+        <input type="radio"name="reason" value="consultation" required> Consultation
+        <input type="radio"name="reason" value="followup" required> Follow-up
+
+        <br>
+        
+        <label>Any notes for the doctor:</label><br>
+        <textarea id="notes"  rows="3" cols="35" placeholder="Write your notes here..."></textarea><br><br>
+        <button type="submit">Submit</button>
+
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>Preferred visit day</legend>
+         
+        <input type="checkbox" value="mon"> MONDAY <br>
+        <input type="checkbox" value="tue"> TUESDAY <br>
+         <input type="checkbox" value="wed"> WEDNESDAY <br>
+         <input type="checkbox" value="thu"> THURSDAY <br>
+          <input type="checkbox" value="fri"> FRIDAY <br>
+          <input type="checkbox" value="sat"> SATURDAY <br>
+          <input type="checkbox" value="sun"> SUNDAY <br>
+
+
+          </fieldset>
+           
+
+          <br>
+          
+          <input type ="submit" value ="Book my Appointment">
+
+          </form>
+
+          </body>
+          </html>
