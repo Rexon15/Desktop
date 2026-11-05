@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>My Fitness Routine Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #dff7e3, #b8e0ff);
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+        .routine-card {
+            background-color: white;
+            padding: 28px;
+            margin: 20px;
+            width: min(360px, calc(100% - 40px));
+            border-radius: 18px;
+            box-shadow: 0 12px 30px rgba(26, 71, 74, 0.2);
+        }
+
+        h1 {
+            color: #155e63;
+            margin: 0 0 8px;
+            font-size: 30px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #486566;
+        }
+
+        .subtitle {
+            margin-top: 0;
+            color: #6b8586;
+        }
+
+        .routine-info {
+            display: flex;
+            gap: 10px;
+            margin: 22px 0;
+        }
+
+        .info {
+            flex: 1;
+            background-color: #e8f7ed;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .info strong {
+            display: block;
+            color: #155e63;
+            font-size: 18px;
+        }
+
+        h2 {
+            color: #155e63;
+            font-size: 19px;
+            border-bottom: 2px solid #d5eee0;
+            padding-bottom: 6px;
+        }
+
+        ul {
+            color: #486566;
+            line-height: 1.8;
+            padding-left: 22px;
+        }
+
+        details {
+            color: #486566;
+            margin-top: 18px;
+        }
+
+        summary {
+            color: #155e63;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .tip {
+            font-style: italic;
+            color: #6b8586;
+        }
+
+    </style>
+</head>
+<body>
+    <main class="routine-card">
+        <h1>My Fitness Routine</h1>
+        <p class="subtitle">A simple full-body workout to build strength and energy.</p>
+
+        <div class="routine-info">
+            <div class="info"><strong>20 min</strong>Duration</div>
+            <div class="info"><strong>Easy</strong>Level</div>
+            <div class="info"><strong>3x</strong>Per week</div>
+        </div>
+
+        <h2>Workout Plan</h2>
+        <ul>
+            <li>Warm-up: March in place for 3 minutes</li>
+            <li>Squats: 3 sets of 10</li>
+            <li>Push-ups: 3 sets of 8</li>
+            <li>Jumping jacks: 3 sets of 20</li>
+            <li>Cool-down: Stretch for 5 minutes</li>
+        </ul>
+
+        <details>
+            <summary>Fitness tip</summary>
+            <p class="tip">Drink water, focus on good form, and rest whenever you need to.</p>
+        </details>
+    </main>
+</body>
+</html>
