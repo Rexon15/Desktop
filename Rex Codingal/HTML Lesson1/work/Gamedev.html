@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kickoff — Street Football</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Gamedev.css">
+</head>
+<body>    
+  <div class="holiday-lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="snow snow-one" aria-hidden="true"></div>
+  <div class="snow snow-two" aria-hidden="true"></div>
+  <div class="christmas-popup" id="christmasPopup" role="dialog" aria-modal="true" aria-labelledby="christmasTitle">
+    <div class="popup-card">
+      <span class="popup-ornament" aria-hidden="true">✦</span>
+      <p class="eyebrow"><span></span> NORTHSTAR HOLIDAY EVENT</p>
+      <h2 id="christmasTitle">CHRISTMAS<br><em>KICKOFF.</em></h2>
+      <p class="countdown-label">DAYS UNTIL CHRISTMAS</p>
+      <strong class="countdown" id="christmasCountdown">--</strong>
+      <p class="popup-copy">Snow, lights, and festive football are waiting.</p>
+      <button class="play-button" id="introButton" type="button"><span>WATCH INTRO</span><b>→</b></button>
+      <button class="popup-skip" id="popupSkip" type="button">SKIP FOR NOW</button>
+    </div>
+  </div>
+  <div class="intro-overlay hidden" id="introOverlay" aria-hidden="true">
+    <div class="intro-video" id="storyMovie" role="img" aria-label="Five minute animated Christmas football backstory">
+      <div class="intro-snow"></div><div class="intro-moon"></div><div class="intro-pitch"></div>
+      <div class="intro-ball">⬟</div><div class="intro-title" id="storyTitle">KICKOFF<br><em>HOLIDAY CUP</em></div>
+      <div class="story-card"><p class="story-chapter" id="storyChapter">CHAPTER 1</p><h2 id="storyHeading">THE FIRST LIGHT</h2><p id="storyCaption">When the winter lights came on, one empty pitch became a promise.</p></div>
+      <div class="story-progress"><span id="storyProgress"></span></div>
+    </div>
+    <div class="story-controls"><button id="storyPause" type="button">PAUSE MOVIE</button><span id="storyTime">05:00</span></div>
+    <button class="intro-skip" id="introSkip" type="button">SKIP INTRO</button>
+  </div>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Kickoff home"><span class="brand-mark">K</span><span>KICK<span>OFF</span></span><b class="brand-holly">* * *</b></a>
+      <div class="season">SEASON <strong>26</strong></div>
+      <div class="audio-controls">
+        <button class="sound-button" id="soundButton" type="button" aria-label="Toggle game sound">◒ <span>Sound on</span></button>
+        <button class="music-button" id="musicButton" type="button" aria-label="Play public-domain Christmas music">♫ <span>Public-domain Christmas music</span></button>
+        <audio id="christmasAudio" hidden loop preload="metadata">
+          <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4c/Anonimo_-_Jingle_Bells_%28sintetizzatore%29.ogg/Anonimo_-_Jingle_Bells_%28sintetizzatore%29.ogg.mp3" type="audio/mpeg">
+          <source src="assets/jingle-bells-public-domain.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </header>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> QUICK MATCH</p>
+        <h1>OWN<br><em>THE</em> PITCH.</h1>
+        <p class="intro">Fast feet. Big moments. Beat the keeper and make the stadium yours.</p>
+        <button class="play-button" id="playButton" type="button"><span>PLAY MATCH</span><b>→</b></button>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="burst"></div><div class="player-silhouette"><div class="head"></div><div class="body"></div><div class="leg leg-left"></div><div class="leg leg-right"></div></div><div class="ball-art"></div>
+        <span class="art-label label-one">01</span><span class="art-label label-two">ATTACK</span>
+      </div>
+    </section>
+    <section class="team-picker" id="teamPicker">
+      <div>
+        <p class="eyebrow"><span></span> CHOOSE YOUR CLUB</p>
+        <h2>BUILD YOUR <em>LEGACY.</em> <span class="decorative-star">+</span></h2>
+      </div>
+      <div class="team-grid" id="teamGrid"></div>
+    </section>
+    <section class="career-panel" id="careerPanel">
+      <div>
+        <p class="eyebrow"><span></span> CAREER MODE</p>
+        <h2>BUILD YOUR <em>LEGACY.</em></h2>
+        <p class="career-copy">Play a six-match winter campaign, earn XP, and climb the table.</p>
+      </div>
+      <div class="career-card">
+        <label for="careerName">PLAYER NAME</label>
+        <input id="careerName" maxlength="18" placeholder="Nova" autocomplete="off">
+        <label for="careerOutfit">OUTFIT</label>
+        <select id="careerOutfit">
+          <option value="#d91e35">Crimson Home Kit</option>
+          <option value="#4d8cff">Arctic Blue Kit</option>
+          <option value="#d7f64a">Neon Lime Kit</option>
+          <option value="#f3efe7">Snow White Kit</option>
+          <option value="#8e48ff">Ultra Purple Kit</option>
+        </select>
+        <button class="action-button" id="careerStart" type="button">START / RESUME CAREER</button>
+        <div class="career-stats"><span><b id="careerMatch">0</b> MATCHES</span><span><b id="careerWins">0</b> WINS</span><span><b id="careerXp">0</b> XP</span></div>
+        <div class="career-awards"><span>🏆 <b id="careerTrophies">0</b> TROPHIES</span><span>⭐ <b id="careerMotm">0</b> MOTM</span></div>
+        <div class="career-fixture" id="careerFixture">CAREER NOT STARTED</div>
+      </div>
+    </section>
+    <section class="game-panel" id="gamePanel">
+      <div class="scoreboard">
+        <div class="team"><span class="team-badge" id="homeBadge" style="background:#d91e35">L</span><strong id="homeTeam">LFC ULTRA OP</strong></div>
+        <div class="score-time"><div><strong id="playerScore">0</strong><span>—</span><strong id="opponentScore">0</strong></div><small id="gameClock">01:00</small></div>
+        <div class="team"><strong id="awayTeam">METRO LIONS</strong><span class="team-badge rival">M</span></div>
+      </div>
+      <div class="canvas-wrap" id="canvasWrap">
+        <canvas id="gameCanvas" width="1200" height="650" aria-label="Playable 1 versus 1 football pitch"></canvas>
+        <canvas id="threeCanvas" aria-label="Real-time 3D football pitch"></canvas>
+        <div class="game-message" id="gameMessage">
+          <p class="eyebrow">MATCH READY</p><h2>TAKE YOUR SHOT</h2>
+          <p>Use <b>WASD</b> or <b>arrow keys</b> to move. Press <b>SPACE</b> to shoot or <b>E</b> for a rocket shot.</p>
+          <button class="play-button small" id="canvasPlayButton" type="button"><span>KICK OFF</span><b>→</b></button>
+        </div>
+        <div class="goal-celebration hidden" id="goalCelebration" aria-live="polite"><strong id="celebrationTitle">GOAL!</strong><span id="celebrationText">WHAT A FINISH!</span></div>
+      </div>
+      <div class="controls"><span><b>W A S D</b> / <b>ARROWS</b> Move</span><button class="action-button" id="passButton" type="button">PASS <b>F</b></button><button class="action-button" id="sprintButton" type="button">SPRINT <b>SHIFT</b></button><button class="action-button" id="tackleButton" type="button">TACKLE <b>Q</b></button><span><b>SPACE</b> Shoot</span><button class="rocket-button" id="rocketButton" type="button">ROCKET SHOT OP</button><button class="ultra-button" id="ultraButton" type="button">ULTRA MODE: OFF</button><button class="action-button" id="threeDButton" type="button">3D VIEW: OFF</button><span><b>E</b> Rocket shot</span><span><b>R</b> Restart</span></div>
+    </section>
+    <footer><span>© 2026 KICKOFF STUDIOS</span><span>BUILT FOR THE BEAUTIFUL GAME</span></footer>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="Gamedev.js"></script>
+</body>
+</html>
