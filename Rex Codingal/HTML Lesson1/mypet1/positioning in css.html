@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zoo Rescue Tracker</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f3f8f1;
+            color: #23352a;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            padding: 20px;
+            background-color: #286044;
+            color: white;
+            text-align: center;
+        }
+
+        main {
+            max-width: 700px;
+            margin: 20px auto;
+        }
+
+        h2 {
+            color: #286044;
+        }
+
+        .count-box,
+        .animal-card,
+        form {
+            margin-bottom: 12px;
+            padding: 15px;
+            border: 1px solid #cbd9cc;
+            border-radius: 8px;
+            background-color: white;
+        }
+
+        .counts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .count-box {
+            margin: 0;
+            text-align: center;
+        }
+
+        .count {
+            display: block;
+            color: #286044;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            margin-top: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 15px;
+            border: 0;
+            background-color: #286044;
+            color: white;
+            cursor: pointer;
+        }
+
+        .animal-card h3 {
+            margin: 0;
+        }
+
+        footer {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Zoo Rescue Tracker</h1>
+        <p>Keep track of animals that need help.</p>
+    </header>
+
+    <main>
+        <h2>Rescue overview</h2>
+        <div class="counts">
+            <div class="count-box">
+                <span class="count" id="total-count">0</span>
+                Animals tracked
+            </div>
+            <div class="count-box">
+                <span class="count" id="help-count">0</span>
+                Need help
+            </div>
+            <div class="count-box">
+                <span class="count" id="care-count">0</span>
+                In care
+            </div>
+            <div class="count-box">
+                <span class="count" id="ready-count">0</span>
+                Ready for release
+            </div>
+        </div>
+
+        <h2>Add an animal</h2>
+        <form id="animal-form">
+            <label for="animal-name">Animal name</label>
+            <input id="animal-name" required>
+
+            <label for="animal-species">Animal type</label>
+            <input id="animal-species" required>
+
+            <label for="animal-location">Where was it rescued?</label>
+            <input id="animal-location" required>
+
+            <label for="animal-status">Care status</label>
+            <select id="animal-status">
+                <option>Needs help</option>
+                <option>In care</option>
+                <option>Ready for release</option>
+            </select>
+
+            <button type="submit">Add animal</button>
+        </form>
+
+        <h2>Animals</h2>
+        <div id="animal-list">
+            <div class="animal-card">
+                <h3>Pip - Red fox</h3>
+                <p>Rescue location: Pine woods</p>
+                <label>Care status
+                    <select class="animal-status" aria-label="Care status for Pip">
+                        <option>Needs help</option>
+                        <option selected>In care</option>
+                        <option>Ready for release</option>
+                    </select>
+                </label>
+            </div>
+            <div class="animal-card">
+                <h3>Mango - Green parrot</h3>
+                <p>Rescue location: City garden</p>
+                <label>Care status
+                    <select class="animal-status" aria-label="Care status for Mango">
+                        <option selected>Needs help</option>
+                        <option>In care</option>
+                        <option>Ready for release</option>
+                    </select>
+                </label>
+            </div>
+            <div class="animal-card">
+                <h3>River - River otter</h3>
+                <p>Rescue location: East riverbank</p>
+                <label>Care status
+                    <select class="animal-status" aria-label="Care status for River">
+                        <option>Needs help</option>
+                        <option>In care</option>
+                        <option selected>Ready for release</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+    </main>
+
+    <footer>Thanks for helping animals!</footer>
+
+    <script>
+        var animalForm = document.getElementById("animal-form");
+        var animalList = document.getElementById("animal-list");
+
+        function updateCounts() {
+            var statusMenus = document.getElementsByClassName("animal-status");
+            var helpCount = 0;
+            var careCount = 0;
+            var readyCount = 0;
+
+            for (var i = 0; i < statusMenus.length; i++) {
+                if (statusMenus[i].value === "Needs help") {
+                    helpCount = helpCount + 1;
+                } else if (statusMenus[i].value === "In care") {
+                    careCount = careCount + 1;
+                } else {
+                    readyCount = readyCount + 1;
+                }
+            }
+
+            document.getElementById("total-count").textContent = statusMenus.length;
+            document.getElementById("help-count").textContent = helpCount;
+            document.getElementById("care-count").textContent = careCount;
+            document.getElementById("ready-count").textContent = readyCount;
+        }
+
+        function addAnimal(name, species, location, status) {
+            var card = document.createElement("div");
+            card.className = "animal-card";
+
+            var heading = document.createElement("h3");
+            heading.textContent = name + " - " + species;
+            card.appendChild(heading);
+
+            var locationText = document.createElement("p");
+            locationText.textContent = "Rescue location: " + location;
+            card.appendChild(locationText);
+
+            var statusLabel = document.createElement("label");
+            statusLabel.textContent = "Care status";
+            card.appendChild(statusLabel);
+
+            var statusMenu = document.createElement("select");
+            statusMenu.className = "animal-status";
+            statusMenu.setAttribute("aria-label", "Care status for " + name);
+            statusMenu.innerHTML =
+                "<option>Needs help</option>" +
+                "<option>In care</option>" +
+                "<option>Ready for release</option>";
+            statusMenu.value = status;
+            statusLabel.appendChild(statusMenu);
+
+            animalList.appendChild(card);
+            updateCounts();
+        }
+
+        animalForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var name = document.getElementById("animal-name").value;
+            var species = document.getElementById("animal-species").value;
+            var location = document.getElementById("animal-location").value;
+            var status = document.getElementById("animal-status").value;
+
+            addAnimal(name, species, location, status);
+            animalForm.reset();
+        });
+
+        animalList.addEventListener("change", function() {
+            updateCounts();
+        });
+
+        updateCounts();
+    </script>
+</body>
+</html>

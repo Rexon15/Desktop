@@ -28,6 +28,7 @@
   <div class="intro-overlay hidden" id="introOverlay" aria-hidden="true">
     <div class="intro-video" id="storyMovie" role="img" aria-label="Five minute animated Christmas football backstory">
       <div class="intro-snow"></div><div class="intro-moon"></div><div class="intro-pitch"></div>
+      <div class="intro-champions" aria-hidden="true"><span class="intro-trophy">🏆</span><span class="intro-player intro-player-one"></span><span class="intro-player intro-player-two"></span></div>
       <div class="intro-ball">⬟</div><div class="intro-title" id="storyTitle">KICKOFF<br><em>HOLIDAY CUP</em></div>
       <div class="story-card"><p class="story-chapter" id="storyChapter">CHAPTER 1</p><h2 id="storyHeading">THE FIRST LIGHT</h2><p id="storyCaption">When the winter lights came on, one empty pitch became a promise.</p></div>
       <div class="story-progress"><span id="storyProgress"></span></div>
@@ -37,6 +38,7 @@
   </div>
   <main class="shell">
     <header class="topbar">
+      <button class="top-admin-button" id="adminTopButton" type="button">ADMIN PANEL</button>
       <a class="brand" href="#" aria-label="Kickoff home"><span class="brand-mark">K</span><span>KICK<span>OFF</span></span><b class="brand-holly">* * *</b></a>
       <div class="season">SEASON <strong>26</strong></div>
       <div class="audio-controls">
@@ -71,7 +73,7 @@
       <div>
         <p class="eyebrow"><span></span> CAREER MODE</p>
         <h2>BUILD YOUR <em>LEGACY.</em></h2>
-        <p class="career-copy">Play a six-match winter campaign, earn XP, and climb the table.</p>
+        <p class="career-copy">Play a six-match 2v2 campaign, earn XP, lift the trophy, and climb the table across three competitions.</p>
       </div>
       <div class="career-card">
         <label for="careerName">PLAYER NAME</label>
@@ -84,10 +86,143 @@
           <option value="#f3efe7">Snow White Kit</option>
           <option value="#8e48ff">Ultra Purple Kit</option>
         </select>
+        <label for="careerMode">COMPETITION</label>
+        <select id="careerMode">
+          <option value="world-cup">WORLD CUP</option>
+          <option value="ucl">UEFA CHAMPIONS LEAGUE</option>
+          <option value="premier-league">PREMIER LEAGUE</option>
+        </select>
         <button class="action-button" id="careerStart" type="button">START / RESUME CAREER</button>
-        <div class="career-stats"><span><b id="careerMatch">0</b> MATCHES</span><span><b id="careerWins">0</b> WINS</span><span><b id="careerXp">0</b> XP</span></div>
+        <button class="action-button transfer-market-button" id="transferMarketButton" type="button">OPEN TRANSFER MARKET</button>
+        <div class="career-stats"><span><b id="careerMatch">0</b> MATCHES</span><span><b id="careerWins">0</b> WINS</span><span><b id="careerXp">0</b> XP</span><span>€<b id="careerCredits">0</b> CASH</span><span>€<b id="careerEarned">0</b> EARNED</span></div>
         <div class="career-awards"><span>🏆 <b id="careerTrophies">0</b> TROPHIES</span><span>⭐ <b id="careerMotm">0</b> MOTM</span></div>
         <div class="career-fixture" id="careerFixture">CAREER NOT STARTED</div>
+      </div>
+    </section>
+    <section class="transfer-market" id="transferMarket">
+      <div>
+        <p class="eyebrow"><span></span> GLOBAL SPORTS</p>
+        <h2>TRANSFER <em>MARKET.</em></h2>
+        <p class="career-copy">Buy normal players for €1B, good to exceptional players for €5B–€10B, sell signed players for 70% of their value, and earn €200M after every five completed matches.</p>
+      </div>
+      <div class="market-card">
+        <label for="marketSearch">SEARCH PLAYERS</label>
+        <input id="marketSearch" type="search" placeholder="Search name or position" autocomplete="off">
+        <label for="marketPlayer">AVAILABLE PLAYERS</label>
+        <select id="marketPlayer"></select>
+        <div class="market-actions">
+          <button class="action-button" id="marketBuyPlayer" type="button">BUY PLAYER</button>
+          <button class="action-button" id="marketSellPlayer" type="button">SELL PLAYER</button>
+        </div>
+        <span id="marketStatus" role="status">Start or resume a career to use the market.</span>
+      </div>
+    </section>
+    <section class="squad-panel" id="squadPanel">
+      <div class="standings-heading">
+        <div>
+          <p class="eyebrow"><span></span> CLUB MANAGEMENT</p>
+          <h2>YOUR <em>SQUAD.</em></h2>
+        </div>
+        <span class="squad-hint">Rename any signed player and build your starting team.</span>
+      </div>
+      <div class="squad-tools">
+        <label for="squadPlayer">PLAYER TO RENAME</label>
+        <select id="squadPlayer"></select>
+        <input id="squadPlayerName" maxlength="24" placeholder="New player name" autocomplete="off">
+        <button class="action-button" id="renamePlayer" type="button">RENAME PLAYER</button>
+        <span id="squadStatus" role="status">No players signed yet.</span>
+      </div>
+      <div class="table-wrap">
+        <table class="standings-table squad-table">
+          <thead><tr><th>#</th><th>PLAYER</th><th>POSITION</th><th>VALUE</th><th>SPEED</th><th>REVENUE</th></tr></thead>
+          <tbody id="squadBody"></tbody>
+        </table>
+      </div>
+    </section>
+    <section class="standings-panel" id="standingsPanel">
+      <div class="standings-heading">
+        <div>
+          <p class="eyebrow"><span></span> LIVE COMPETITION</p>
+          <h2 id="standingsTitle">WORLD CUP <em>TABLE.</em></h2>
+        </div>
+        <div class="standings-meta"><b id="standingsRound">MATCHDAY 1</b><span class="your-club-legend">◆ YOUR CLUB</span><span>3 PTS WIN · 1 PTS DRAW</span></div>
+      </div>
+      <div class="table-wrap">
+        <table class="standings-table">
+          <thead><tr><th>#</th><th>CLUB</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>PTS</th></tr></thead>
+          <tbody id="standingsBody"></tbody>
+        </table>
+      </div>
+    </section>
+    <section class="admin-panel" id="adminPanel">
+      <div class="admin-heading">
+        <div>
+          <p class="eyebrow"><span></span> COMMISSIONER TOOLS</p>
+          <h2>ADMIN <em>CONTROL.</em></h2>
+        </div>
+        <button class="action-button" id="adminToggle" type="button">OPEN ADMIN PANEL</button>
+      </div>
+      <div class="admin-lock hidden" id="adminLock">
+        <label for="adminPassword">ADMIN PASSWORD</label>
+        <input id="adminPassword" type="password" inputmode="numeric" maxlength="6" placeholder="Enter password">
+        <button class="action-button" id="adminUnlock" type="button">UNLOCK</button>
+        <span id="adminStatus" role="status">Locked</span>
+      </div>
+      <div class="admin-tools hidden" id="adminTools">
+        <div class="admin-grid">
+          <div>
+            <label for="adminTeam">EDIT CLUB</label>
+            <select id="adminTeam"></select>
+          </div>
+          <div>
+            <label for="adminPoints">POINTS CHANGE</label>
+            <input id="adminPoints" type="number" step="1" value="3">
+          </div>
+          <div>
+            <label for="adminGoalDifference">GD CHANGE</label>
+            <input id="adminGoalDifference" type="number" step="1" value="1">
+          </div>
+          <button class="action-button" id="adminApplyTable" type="button">APPLY TABLE EDIT</button>
+          <div>
+            <label for="adminHomeScore">YOUR SCORE</label>
+            <input id="adminHomeScore" type="number" min="0" step="1" value="0">
+          </div>
+          <div>
+            <label for="adminAwayScore">OPPONENT SCORE</label>
+            <input id="adminAwayScore" type="number" min="0" step="1" value="0">
+          </div>
+          <button class="action-button" id="adminApplyScore" type="button">SET MATCH SCORE</button>
+          <button class="rocket-button" id="adminPayWin" type="button">PAY TO WIN BOOST</button>
+          <div class="transfer-ad"><b>TRANSFER MARKET AD</b><span>Sign a star before your rivals do.</span></div>
+          <div>
+            <label for="adminPlayer">SIGN PLAYER</label>
+            <select id="adminPlayer"></select>
+          </div>
+          <button class="action-button" id="adminSignPlayer" type="button">SIGN PLAYER FREE</button>
+          <button class="action-button" id="adminSellPlayer" type="button">SELL SELECTED PLAYER</button>
+          <button class="rocket-button" id="adminFreeSignPlayer" type="button">OWNER: SIGN FREE</button>
+          <div>
+            <label for="adminCashAmount">ADD CASH</label>
+            <input id="adminCashAmount" type="number" min="0" step="1000000" value="1000000000">
+          </div>
+          <button class="action-button" id="adminAddCash" type="button">ADD CASH</button>
+          <div>
+            <label for="adminTeamRole">CAREER ROLE</label>
+            <select id="adminTeamRole"><option value="player">PLAYER</option><option value="manager">MANAGER</option><option value="president">PRESIDENT</option></select>
+          </div>
+          <button class="action-button" id="adminSetRole" type="button">SET ROLE</button>
+          <button class="action-button" id="adminBuyTeam" type="button">BUY SELECTED TEAM</button>
+          <div>
+            <label for="adminWalkSpeed">WALK SPEED</label>
+            <input id="adminWalkSpeed" type="number" min="1" max="10" step="1" value="5">
+          </div>
+          <div>
+            <label for="adminRunSpeed">RUN SPEED</label>
+            <input id="adminRunSpeed" type="number" min="1" max="20" step="1" value="10">
+          </div>
+          <button class="action-button" id="adminApplySpeed" type="button">APPLY PLAYER SPEED</button>
+        </div>
+        <p class="admin-note">Speed scale: 5 is walking speed and 10 is running speed. Owner mode: free player signing, cash grants, team ownership, and career roles.</p>
       </div>
     </section>
     <section class="game-panel" id="gamePanel">
@@ -101,10 +236,18 @@
         <canvas id="threeCanvas" aria-label="Real-time 3D football pitch"></canvas>
         <div class="game-message" id="gameMessage">
           <p class="eyebrow">MATCH READY</p><h2>TAKE YOUR SHOT</h2>
-          <p>Use <b>WASD</b> or <b>arrow keys</b> to move. Press <b>SPACE</b> to shoot or <b>E</b> for a rocket shot.</p>
+          <p>2v2 match: your AI teammate faces two rivals with you. Use <b>WASD</b> or <b>arrow keys</b> to move. Press <b>SPACE</b> to shoot or <b>E</b> for a rocket shot.</p>
           <button class="play-button small" id="canvasPlayButton" type="button"><span>KICK OFF</span><b>→</b></button>
         </div>
         <div class="goal-celebration hidden" id="goalCelebration" aria-live="polite"><strong id="celebrationTitle">GOAL!</strong><span id="celebrationText">WHAT A FINISH!</span></div>
+        <div class="trophy-celebration hidden" id="trophyCelebration" aria-live="polite">
+          <div class="team-lift" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><b>🏆</b></div>
+          <div class="trophy-cup" aria-hidden="true">🏆</div>
+          <p class="eyebrow">CHAMPIONS</p>
+          <strong id="trophyTitle">WORLD CUP WINNERS</strong>
+          <span id="trophyText">YOU LIFT THE TROPHY · ⭐ MAN OF THE MATCH</span>
+          <button class="play-button small" id="trophyClose" type="button"><span>CONTINUE</span><b>→</b></button>
+        </div>
       </div>
       <div class="controls"><span><b>W A S D</b> / <b>ARROWS</b> Move</span><button class="action-button" id="passButton" type="button">PASS <b>F</b></button><button class="action-button" id="sprintButton" type="button">SPRINT <b>SHIFT</b></button><button class="action-button" id="tackleButton" type="button">TACKLE <b>Q</b></button><span><b>SPACE</b> Shoot</span><button class="rocket-button" id="rocketButton" type="button">ROCKET SHOT OP</button><button class="ultra-button" id="ultraButton" type="button">ULTRA MODE: OFF</button><button class="action-button" id="threeDButton" type="button">3D VIEW: OFF</button><span><b>E</b> Rocket shot</span><span><b>R</b> Restart</span></div>
     </section>
