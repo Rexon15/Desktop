@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Club</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #1f5f8b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .nav {
+            background-color: #2d7a9c;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        .main {
+            width: 80%;
+            margin: 30px auto;
+        }
+
+        .hero {
+            background-color: #dff3ff;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .hero h1 {
+            color: #1f5f8b;
+            font-size: 36px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        .button {
+            background-color: #ffb703;
+            color: black;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: white;
+            width: 22%;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        .card h3 {
+            color: #2d7a9c;
+        }
+
+        .schedule {
+            background-color: #fff7d6;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #1f5f8b;
+            color: white;
+        }
+
+        .join {
+            background-color: #e8f5e9;
+            padding: 30px;
+            margin-top: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        input {
+            width: 70%;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #aaa;
+            border-radius: 6px;
+        }
+
+        button {
+            background-color: #2d7a9c;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .footer {
+            background-color: #1f5f8b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+
+            input {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Bright Future School Club</h1>
+    </div>
+
+    <div class="nav">
+        <a href="#about">About</a>
+        <a href="#clubs">Clubs</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#join">Join</a>
+    </div>
+
+    <div class="main">
+        <div class="hero" id="about">
+            <h1>Welcome to Our Club</h1>
+            <p>
+                We are a fun school club where students make friends,
+                learn new things, and enjoy exciting activities together.
+            </p>
+            <a href="#join" class="button">Join Now</a>
+        </div>
+
+        <div class="cards" id="clubs">
+            <div class="card">
+                <h3>Science Club</h3>
+                <p>We do simple experiments and discover new facts.</p>
+            </div>
+
+            <div class="card">
+                <h3>Art Club</h3>
+                <p>We draw, paint, and make creative projects.</p>
+            </div>
+
+            <div class="card">
+                <h3>Sports Club</h3>
+                <p>We play games and stay active with our friends.</p>
+            </div>
+
+            <div class="card">
+                <h3>Reading Club</h3>
+                <p>We read stories and talk about books we enjoy.</p>
+            </div>
+        </div>
+
+        <div class="schedule" id="schedule">
+            <h2>Club Schedule</h2>
+            <table>
+                <tr>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Activity</th>
+                </tr>
+                <tr>
+                    <td>Monday</td>
+                    <td>3:30 PM</td>
+                    <td>Science Fun</td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td>3:30 PM</td>
+                    <td>Art and Craft</td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td>3:30 PM</td>
+                    <td>Sports Games</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="join" id="join">
+            <h2>Join Our Club</h2>
+            <form>
+                <input type="text" placeholder="Your Name"><br>
+                <input type="email" placeholder="Your Email"><br>
+                <input type="text" placeholder="Your Favorite Club"><br>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 Bright Future School Club</p>
+    </div>
+</body>
+</html>
+
