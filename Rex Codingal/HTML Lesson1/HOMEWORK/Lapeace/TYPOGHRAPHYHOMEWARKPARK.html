@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Park Challenge</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 24px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #23352a;
+            background-color: #eef5e8;
+            text-align: center;
+        }
+
+        header, main, footer {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            padding: 32px 20px;
+            color: white;
+            background-color: #286044;
+            border-radius: 18px;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 8px 0;
+        }
+
+        .level {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 8px 14px;
+            color: #23352a;
+            background-color: #ffe28a;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        section {
+            margin-top: 24px;
+            padding: 24px;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px #203b2518;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #286044;
+        }
+
+        .challenges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .challenge {
+            flex: 1 1 200px;
+            padding: 18px;
+            background-color: #f3f8ee;
+            border: 2px solid #d5e6ca;
+            border-radius: 12px;
+        }
+
+        .challenge h3 {
+            margin-top: 0;
+            color: #8a5a22;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 12px 20px;
+            color: white;
+            background-color: #d77832;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #b95d20;
+        }
+
+        ul {
+            display: inline-block;
+            margin: 0;
+            padding-left: 22px;
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        footer {
+            padding: 24px 12px 8px;
+            color: #526457;
+        }
+
+        @media (max-width: 500px) {
+            body {
+                padding: 14px;
+            }
+
+            header {
+                padding: 26px 16px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Adventure Park Challenge</h1>
+        <p>Ready to explore, play, and become an adventure champion?</p>
+        <p class="level">Beginner Mode: Easy and Fun!</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Your Mini Adventure</h2>
+            <p>Try these three simple challenges. Complete them at your own pace and have fun!</p>
+            <div class="challenges">
+                <article class="challenge">
+                    <h3>🌳 Nature Spotter</h3>
+                    <p>Find three different leaves near the trail.</p>
+                </article>
+                <article class="challenge">
+                    <h3>🎯 Target Toss</h3>
+                    <p>Toss a soft beanbag into a basket from a short distance.</p>
+                </article>
+                <article class="challenge">
+                    <h3>🧩 Trail Riddle</h3>
+                    <p>Answer one easy nature riddle at the park sign.</p>
+                </article>
+            </div>
+            <a class="button" href="#park-rules">Start the Challenge</a>
+        </section>
+
+        <section id="park-rules">
+            <h2>Before You Start</h2>
+            <ul>
+                <li>Stay with your grown-up or group.</li>
+                <li>Walk on the marked paths.</li>
+                <li>Take turns and cheer for everyone.</li>
+                <li>Drink water and take a break whenever you need one.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Every explorer is a winner. Have an awesome adventure!</p>
+    </footer>
+</body>
+</html>
