@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Study Progress Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #f4f7fb 0%, #eaf1ff 100%);
+      font-family: Arial, Helvetica, sans-serif;
+      color: #1f2a37;
+    }
+
+    .dashboard-header {
+      background: linear-gradient(135deg, #3b82f6, #7c3aed);
+      color: white;
+      padding: 40px 0;
+      border-radius: 0 0 28px 28px;
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+    }
+
+    .header-card {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 20px;
+      padding: 18px 20px;
+      backdrop-filter: blur(8px);
+    }
+
+    .header-card strong {
+      display: block;
+      font-size: 2rem;
+      margin-top: 5px;
+    }
+
+    .stat-card {
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.08);
+      padding: 22px 20px;
+      margin-bottom: 20px;
+      border: 1px solid #edf2f7;
+    }
+
+    .stat-card .label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+
+    .stat-card .value {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #0f172a;
+    }
+
+    .stat-card .trend {
+      font-size: 0.9rem;
+      color: #16a34a;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .panel {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 24px 22px;
+      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.05);
+      border: 1px solid #edf2f7;
+      margin-bottom: 22px;
+    }
+
+    .panel-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 18px;
+    }
+
+    .subject-row {
+      margin-bottom: 18px;
+    }
+
+    .subject-row .subject-name {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 8px;
+    }
+
+    .progress {
+      height: 14px;
+      border-radius: 10px;
+      background: #e2e8f0;
+    }
+
+    .progress-bar {
+      border-radius: 10px;
+      font-size: 0.8rem;
+      line-height: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .task-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .task-list li {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .task-list .task-text {
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    .task-list .deadline {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-left: 10px;
+    }
+
+    .badge-pill {
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    @media (max-width: 767px) {
+      .header-card {
+        margin-bottom: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="dashboard-header">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+        <div>
+          <p class="mb-1 text-uppercase" style="letter-spacing:0.12em; opacity:0.8; font-size: 0.8rem;">Student Overview</p>
+          <h1 class="mb-0">Study Progress Dashboard</h1>
+        </div>
+        <button class="btn btn-light text-primary font-weight-bold">+ Add Subject</button>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 mb-3">
+          <div class="header-card">
+            <span>Completed</span>
+            <strong>18</strong>
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <div class="header-card">
+            <span>In Progress</span>
+            <strong>07</strong>
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <div class="header-card">
+            <span>Average Score</span>
+            <strong>88%</strong>
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <div class="header-card">
+            <span>Study Time</span>
+            <strong>14.5h</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mt-4">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="stat-card">
+          <div class="label">Assignments</div>
+          <div class="value">12</div>
+          <div class="trend">↑ 3 this week</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-card">
+          <div class="label">Quizzes</div>
+          <div class="value">05</div>
+          <div class="trend">↑ 1 passed</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-card">
+          <div class="label">Reading</div>
+          <div class="value">74%</div>
+          <div class="trend">On track</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-card">
+          <div class="label">Goal Streak</div>
+          <div class="value">09</div>
+          <div class="trend">Days strong</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="panel">
+          <div class="panel-title">Subject Progress</div>
+
+          <div class="subject-row">
+            <div class="subject-name">
+              <span>Mathematics</span>
+              <span>85%</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-primary" style="width: 85%;">85%</div>
+            </div>
+          </div>
+
+          <div class="subject-row">
+            <div class="subject-name">
+              <span>Science</span>
+              <span>72%</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-success" style="width: 72%;">72%</div>
+            </div>
+          </div>
+
+          <div class="subject-row">
+            <div class="subject-name">
+              <span>English</span>
+              <span>90%</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-warning" style="width: 90%;">90%</div>
+            </div>
+          </div>
+
+          <div class="subject-row">
+            <div class="subject-name">
+              <span>History</span>
+              <span>64%</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-danger" style="width: 64%;">64%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="panel">
+          <div class="panel-title">Weekly Focus</div>
+          <ul class="task-list">
+            <li>
+              <div>
+                <div class="task-text">Biology lab notes</div>
+                <div class="deadline">Due Thu</div>
+              </div>
+              <span class="badge badge-primary badge-pill">75%</span>
+            </li>
+            <li>
+              <div>
+                <div class="task-text">Math revision quiz</div>
+                <div class="deadline">Due Fri</div>
+              </div>
+              <span class="badge badge-success badge-pill">Done</span>
+            </li>
+            <li>
+              <div>
+                <div class="task-text">Essay draft</div>
+                <div class="deadline">Due Mon</div>
+              </div>
+              <span class="badge badge-warning badge-pill">Drafting</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Upcoming Deadlines</div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="stat-card mb-0">
+            <div class="label">Chemistry Lab</div>
+            <div class="value" style="font-size:1.6rem;">Tuesday</div>
+            <div class="trend">Report + diagram</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="stat-card mb-0">
+            <div class="label">History Quiz</div>
+            <div class="value" style="font-size:1.6rem;">Wednesday</div>
+            <div class="trend">World War II review</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="stat-card mb-0">
+            <div class="label">English Reading</div>
+            <div class="value" style="font-size:1.6rem;">Friday</div>
+            <div class="trend">Chapter 6 summary</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+    
+    
+
