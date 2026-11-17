@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ocean World</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(to bottom, #021c2b, #0d4f6a 40%, #0a2a3a 100%);
+      color: #e6f6ff;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      background: rgba(5, 68, 90, 0.9);
+      border-bottom: 2px solid rgba(120, 205, 255, 0.7);
+    }
+
+    .navbar-brand, .nav-link {
+      color: #dff8ff !important;
+      font-weight: bold;
+    }
+
+    .nav-link:hover {
+      color: #7ce0ff !important;
+    }
+
+    .section-title {
+      color: #a7ecff;
+      margin: 30px 0 20px;
+      text-shadow: 0 0 8px rgba(128, 214, 255, 0.8);
+    }
+
+    .hero {
+      background: radial-gradient(circle at top, rgba(155, 230, 255, 0.35), rgba(20, 98, 130, 0.1) 35%, transparent 70%);
+      padding: 30px 0 10px;
+    }
+
+    .spinner-wrap {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: rgba(6, 51, 70, 0.7);
+      border: 1px solid rgba(130, 215, 255, 0.5);
+      color: #ebfaff;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .card-title {
+      color: #8fe6ff;
+      font-weight: bold;
+    }
+
+    .card-text {
+      color: #d9f7ff;
+      line-height: 1.7;
+    }
+
+    .btn-primary {
+      background-color: #1ba8cf;
+      border-color: #1ba8cf;
+    }
+
+    .btn-info {
+      background-color: #3ec4d9;
+      border-color: #3ec4d9;
+    }
+
+    .btn-success {
+      background-color: #2ca0a8;
+      border-color: #2ca0a8;
+    }
+
+    .page-link {
+      background: rgba(8, 88, 112, 0.7);
+      color: #dff9ff;
+      border: 1px solid rgba(126, 215, 255, 0.5);
+    }
+
+    .page-item.active .page-link {
+      background-color: #39b7d2;
+      border-color: #39b7d2;
+      color: #fff;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -50px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: rgba(177, 231, 255, 0.4);
+      animation: rise 12s infinite ease-in;
+    }
+
+    .bubble:nth-child(1) { left: 12%; animation-delay: 0s; }
+    .bubble:nth-child(2) { left: 30%; animation-delay: 2s; }
+    .bubble:nth-child(3) { left: 52%; animation-delay: 4s; }
+    .bubble:nth-child(4) { left: 73%; animation-delay: 1s; }
+    .bubble:nth-child(5) { left: 86%; animation-delay: 5s; }
+
+    @keyframes rise {
+      0% { transform: translateY(0) scale(0.8); opacity: 0; }
+      20% { opacity: 0.8; }
+      100% { transform: translateY(-500px) scale(1.3); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div style="position: relative; overflow: hidden; min-height: 100vh;">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+
+    <nav class="navbar navbar-expand-sm">
+      <a class="navbar-brand" href="#">Ocean World</a>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Coral Reefs</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Deep Sea</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Marine Life</a></li>
+      </ul>
+    </nav>
+
+    <div class="container mt-4 hero">
+      <h4 class="section-title">Exploring the Blue Horizon...</h4>
+      <div class="spinner-wrap">
+        <div class="spinner-border text-info" role="status"></div>
+        <div class="spinner-border text-primary" role="status"></div>
+        <div class="spinner-border text-success" role="status"></div>
+      </div>
+
+      <h4 class="section-title">Featured Ocean Zones</h4>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Coral Reef</h5>
+              <p class="card-text">Coral reefs are crowded ocean cities filled with color, movement, and life. They shelter countless fish, sea turtles, and tiny organisms that work together to keep the sea thriving.</p>
+              <a href="#" class="btn btn-primary">Dive In</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Open Ocean</h5>
+              <p class="card-text">The open sea stretches beyond the coast in a vast blue world where whales travel, rays glide, and sunlight fades into deep mysterious water.</p>
+              <a href="#" class="btn btn-info">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Deep Sea</h5>
+              <p class="card-text">In the abyss, creatures glow with bioluminescent light and survive in darkness, creating one of the strangest and most beautiful ecosystems on Earth.</p>
+              <a href="#" class="btn btn-success">Discover</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="section-title">More Ocean Facts</h4>
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
